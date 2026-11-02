@@ -41,10 +41,24 @@ class _ProductPageState extends State<ProductPage> {
   }
 
   Future<void> _deleteProduct(String id) async {
-    // TODO: Await deletion by ID; report failures, not false success.
-    ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(content: Text('Delete is not implemented yet.')),
-    );
+    try {
+      await _products.doc(id).delete();
+      if (!mounted) return;
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Product deleted successfully.')),
+      );
+    } on FirebaseException catch (error) {
+      debugPrint('Delete failed (${error.code}): ${error.message}');
+      if (!mounted) return;
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Delete failed (${error.code}). Check connection/rules.')),
+      );
+    } catch (e) {
+      if (!mounted) return;
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Delete failed: $e')),
+      );
+    }
   }
 
   @override
