@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "705627349691",
+    "project_id": "mad-inclass11",
+    "storage_bucket": "mad-inclass11.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:705627349691:android:d1dcf2abb1729a9a453f9e",
+        "android_client_info": {
+          "package_name": "com.example.my_product_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB0-eqHT4sLqGb4jRkOgBEyyoeYp4CYxXY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
